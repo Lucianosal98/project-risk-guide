@@ -4,53 +4,100 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Guida Fattore di Rischio - Project Work</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 
-  <!-- CSS incluso direttamente per semplicità -->
   <style>
-    /* Impostazioni generali della pagina */
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif; /* Font classico e leggibile */
-      background-color: #f2f4f8; /* Colore di sfondo chiaro */
-      color: #333; /* Colore testo */
+    :root {
+      --main-bg: #f2f4f8;
+      --main-text: #333;
+      --card-bg: #fff;
+      --btn-bg: #1e3a8a;
+      --btn-hover: #15307a;
     }
 
-    /* Contenitore centrale del contenuto */
+    body.dark {
+      --main-bg: #1c1c1c;
+      --main-text: #e0e0e0;
+      --card-bg: #2b2b2b;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: var(--main-bg);
+      color: var(--main-text);
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .navbar {
+      background-color: var(--card-bg);
+      padding: 15px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .navbar h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      background: none;
+      border: 1px solid var(--main-text);
+      color: var(--main-text);
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
     .container {
-      max-width: 800px; /* Larghezza massima */
-      margin: 80px auto; /* Centra verticalmente e orizzontalmente */
-      background-color: #fff;
-      padding: 50px 40px; /* Spazio interno */
-      box-shadow: 0 0 20px rgba(0,0,0,0.05); /* Ombra leggera */
-      border-radius: 10px; /* Angoli arrotondati */
+      max-width: 800px;
+      margin: 40px auto;
+      background-color: var(--card-bg);
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
       text-align: center;
     }
 
-    /* Titolo principale */
     h1 {
       font-size: 28px;
       margin-bottom: 10px;
-      color: #1e3a8a; /* Blu scuro */
+      color: var(--main-text);
     }
 
-    /* Sottotitolo */
     h2 {
       font-size: 18px;
       font-weight: normal;
       margin-bottom: 30px;
-      color: #666;
+      color: var(--main-text);
     }
 
-    /* Paragrafo descrittivo */
     .description {
       font-size: 16px;
       line-height: 1.7;
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
 
-    /* Stile del pulsante di download */
+    .preview-image {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+      margin-bottom: 25px;
+    }
+
+    iframe {
+      width: 100%;
+      height: 500px;
+      border: 1px solid #ccc;
+      margin-bottom: 30px;
+    }
+
     .download-btn {
-      background-color: #1e3a8a; /* Blu principale */
+      background-color: var(--btn-bg);
       color: white;
       padding: 14px 28px;
       border: none;
@@ -61,45 +108,51 @@
       transition: background 0.3s;
     }
 
-    /* Effetto hover sul pulsante */
     .download-btn:hover {
-      background-color: #15307a;
+      background-color: var(--btn-hover);
     }
 
-    /* Footer della pagina */
     footer {
       margin-top: 50px;
       font-size: 13px;
-      color: #999;
+      color: var(--main-text);
     }
   </style>
 </head>
 <body>
 
-  <!-- Contenitore principale -->
-  <div class="container">
-    <!-- Titolo -->
-    <h1>Guida Tecnica</h1>
+  <div class="navbar">
+    <h2>Guida Fattore di Rischio</h2>
+    <button class="theme-toggle" onclick="toggleTheme()">🌓 Tema</button>
+  </div>
 
-    <!-- Sottotitolo -->
+  <div class="container">
+    <h1>Guida Tecnica</h1>
     <h2>Calcolo del Fattore di Rischio - Project Work</h2>
 
-    <!-- Descrizione del contenuto -->
     <p class="description">
-      Questa guida approfondisce il tema della sicurezza sul lavoro con focus sul calcolo del fattore di rischio. <br />
+      Questa guida approfondisce il tema della sicurezza sul lavoro con focus sul calcolo del fattore di rischio.
       Include riferimenti normativi, metodi di calcolo e applicazioni pratiche in ambito aziendale.
     </p>
+    
+    <!-- Visualizzazione integrata del PDF -->
+    <iframe src="Guida_Tesi_Paginata_BricoHome.pdf" title="Visualizza PDF"></iframe>
 
-    <!-- Pulsante per scaricare il file PDF -->
+    <!-- Pulsante per il download -->
     <a href="Guida_Tesi_Paginata_BricoHome.pdf" class="download-btn" download>
       📥 Scarica la Guida (PDF)
     </a>
 
-    <!-- Footer -->
     <footer>
       Project Work – Informatica per le Aziende Digitali (L-31) – Anno accademico 2024/2025
     </footer>
   </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle('dark');
+    }
+  </script>
 
 </body>
 </html>
